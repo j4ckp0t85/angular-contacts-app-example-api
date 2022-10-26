@@ -6,7 +6,7 @@ export class AppController {
   @Get()
   getHello() {
     return {
-      status: 'ok'
+      status: 'hello controller'
     };
   }
 }

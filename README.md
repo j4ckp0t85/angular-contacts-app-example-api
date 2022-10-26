@@ -10,13 +10,12 @@ This backend is based on NestJS Framework V6 (https://nestjs.com/)
 
 - DB: Postgres
 - Websockets: Socket.io
-- Synchronises sockets thourgh Redis adapter for horizontal scaling 
-
+- Synchronises sockets thourgh Redis adapter for horizontal scaling
 
 **Frontend is available here: https://github.com/avatsaev/angular-contacts-app-example**
 
-
 ## Env VARS:
+
       SERVER_PORT: 3000
       POSTGRES_HOST: db
       POSTGRES_PORT: 5432
@@ -29,27 +28,30 @@ This backend is based on NestJS Framework V6 (https://nestjs.com/)
 
 ## Run
 
-`docker-compose up --build `
+`docker-compose up --build ` (postgresql)
+`npm start ` (api)
 
 Server will be running on http://localhost:3000
 
 # Endpoints
 
- - `GET /contacts` : returns an array of `Contacts`
- - `GET /contacts/:id`: returns a `Contact` shape 
- - `POST /contacts`: Create a contact, returns a `Contact` shape
- - `PATCH /contacts/:id`: Partially update a `Contact`, returns a `Contact` shape
- - `DELETE /contacts/:id`: Delete a `Contact`, empty response
+- `GET /contacts` : returns an array of `Contacts`
+- `GET /contacts/:id`: returns a `Contact` shape
+- `POST /contacts`: Create a contact, returns a `Contact` shape
+- `PATCH /contacts/:id`: Partially update a `Contact`, returns a `Contact` shape
+- `DELETE /contacts/:id`: Delete a `Contact`, empty response
 
 ### Contact shape:
+
 ```typescript
 interface Contact {
-    id?: number | string;
-    name: string;
-    email: string;
-    phone?: string;
+  id?: number | string;
+  name: string;
+  email: string;
+  phone?: string;
 }
 ```
+
 ## Installation
 
 ```bash
@@ -81,4 +83,3 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-

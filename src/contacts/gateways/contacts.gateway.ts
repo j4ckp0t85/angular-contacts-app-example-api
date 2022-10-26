@@ -5,16 +5,18 @@ import {
     WebSocketGateway,
     WebSocketServer
 } from '@nestjs/websockets';
+import { Server } from 'socket.io';
 
-import {Contact} from '../models/contact';
-import {CONTACTS_ACTIONS} from '../actions/contact.actions';
+import { Contact } from '../models/contact';
+import { CONTACTS_ACTIONS } from '../actions/contact.actions';
 
 @WebSocketGateway({
-    namespace: '/contacts'
+    namespace: 'contacts',
+    cors: { origin: ['http://localhost:4200'] }
 })
 export class ContactsGateway implements OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit {
 
-    @WebSocketServer() private server;
+    @WebSocketServer() server: Server;
 
     afterInit() {
         console.log('socket initialized');
